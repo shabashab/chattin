@@ -16,9 +16,7 @@ type setupRoutesProvide struct {
 }
 
 func setupRoutes(p setupRoutesProvide) {
-	apiGroup := p.Router.Group("/api/v1/")
+	api := p.Router.Group("/api/v1/")
 
-	{
-		apiGroup.GET("/health", p.HealthController.GetHealth)
-	}
+	api.GET("/health", p.HealthController.GetHealth)
 }

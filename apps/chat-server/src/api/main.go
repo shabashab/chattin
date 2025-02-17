@@ -2,6 +2,7 @@ package api
 
 import (
 	"chattin/chat-server/src/api/controllers"
+	"chattin/chat-server/src/config/configs"
 	"context"
 	"fmt"
 	"net"
@@ -11,11 +12,11 @@ import (
 	"go.uber.org/fx"
 )
 
-func newServer(lc fx.Lifecycle) (*http.Server, *gin.Engine) {
+func newServer(lc fx.Lifecycle, apiConfig *configs.ApiConfig) (*http.Server, *gin.Engine) {
 	router := gin.Default()
 
 	server := &http.Server{
-		Addr: ":4000",
+		Addr: apiConfig.Host,
 	}
 
 	lc.Append(fx.Hook{

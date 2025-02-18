@@ -1,7 +1,7 @@
 package api
 
 import (
-	"chattin/chat-server/src/api/controllers"
+	"github.com/shabashab/chattin/apps/chat-server/src/api/controllers"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/fx"

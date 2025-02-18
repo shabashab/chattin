@@ -1,7 +1,7 @@
 package database
 
 import (
-	"chattin/chat-server/src/database/models"
+	"github.com/shabashab/chattin/apps/chat-server/src/database/models"
 
 	"go.uber.org/fx"
 	"gorm.io/gorm"

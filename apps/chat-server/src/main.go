@@ -1,10 +1,10 @@
 package main
 
 import (
-	"chattin/chat-server/src/api"
-	"chattin/chat-server/src/config"
-	"chattin/chat-server/src/database"
-	"chattin/chat-server/src/services"
+	"github.com/shabashab/chattin/apps/chat-server/src/api"
+	"github.com/shabashab/chattin/apps/chat-server/src/config"
+	"github.com/shabashab/chattin/apps/chat-server/src/database"
+	"github.com/shabashab/chattin/apps/chat-server/src/services"
 
 	"go.uber.org/fx"
 	"go.uber.org/zap"

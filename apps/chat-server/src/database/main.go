@@ -1,8 +1,8 @@
 package database
 
 import (
-	"chattin/chat-server/src/config/configs"
-	"chattin/chat-server/src/database/models"
+	"github.com/shabashab/chattin/apps/chat-server/src/config/configs"
+	"github.com/shabashab/chattin/apps/chat-server/src/database/models"
 
 	"go.uber.org/fx"
 	"gorm.io/driver/postgres"

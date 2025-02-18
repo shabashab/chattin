@@ -1,12 +1,13 @@
 package api
 
 import (
-	"chattin/chat-server/src/api/controllers"
-	"chattin/chat-server/src/config/configs"
 	"context"
 	"fmt"
 	"net"
 	"net/http"
+
+	"github.com/shabashab/chattin/apps/chat-server/src/api/controllers"
+	"github.com/shabashab/chattin/apps/chat-server/src/config/configs"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/fx"

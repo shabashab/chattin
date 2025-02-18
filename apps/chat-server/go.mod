@@ -1,4 +1,4 @@
-module chattin/chat-server
+module github.com/shabashab/chattin/apps/chat-server
 
 go 1.24.0
 

@@ -1,8 +1,9 @@
 package controllers
 
 import (
-	"chattin/chat-server/src/services"
 	"net/http"
+
+	"github.com/shabashab/chattin/apps/chat-server/src/services"
 
 	"github.com/gin-gonic/gin"
 )

@@ -1,7 +1,7 @@
 package config
 
 import (
-	"chattin/chat-server/src/config/configs"
+	"github.com/shabashab/chattin/apps/chat-server/src/config/configs"
 
 	"github.com/spf13/viper"
 	"go.uber.org/fx"

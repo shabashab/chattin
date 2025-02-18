@@ -2,6 +2,7 @@ package database
 
 import (
 	"chattin/chat-server/src/config/configs"
+	"chattin/chat-server/src/database/models"
 
 	"go.uber.org/fx"
 	"gorm.io/driver/postgres"
@@ -9,12 +10,18 @@ import (
 )
 
 var Module = fx.Module("database",
+	models.Module,
+
 	fx.Provide(
-		NewDatabase,
+		newDatabase,
+	),
+
+	fx.Invoke(
+		autoMigrate,
 	),
 )
 
-func NewDatabase(dbConfig *configs.DBConfig) (*gorm.DB, error) {
+func newDatabase(dbConfig *configs.DBConfig, ) (*gorm.DB, error) {
 	pg := postgres.Open(dbConfig.ConnectionUrl)
 
 	db, err := gorm.Open(pg)

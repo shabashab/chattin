@@ -2,6 +2,10 @@ package models
 
 import "gorm.io/gorm"
 
-type User struct {
+type App struct {
 	gorm.Model
+
+	Name string
+
+	Users	[]User
 }

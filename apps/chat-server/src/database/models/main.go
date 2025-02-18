@@ -6,6 +6,8 @@ import (
 
 var Module = fx.Module("database.models",
 	provideModel(&User{}),
+	provideModel(&App{}),
+	provideModel(&Seed{}),
 )
 
 type Model interface{}

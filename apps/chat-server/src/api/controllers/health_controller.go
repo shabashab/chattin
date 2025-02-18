@@ -18,7 +18,14 @@ func NewHealthController(healthService *services.HealthService) (*HealthControll
 }
 
 func (controller HealthController) GetHealth(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{
-		"status": controller.healthService.GetHealthStatus(),
+	healthStatus := controller.healthService.GetHealthStatus()
+	httpStatus := http.StatusOK
+
+	if(!healthStatus.Alive) {
+		httpStatus = http.StatusInternalServerError
+	}
+
+	ctx.JSON(httpStatus, gin.H{
+		"status": healthStatus,
 	})
 }

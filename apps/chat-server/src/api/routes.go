@@ -1,8 +1,11 @@
 package api
 
 import (
+	"fmt"
+
 	"github.com/shabashab/chattin/apps/chat-server/src/api/controllers"
 	"github.com/shabashab/chattin/apps/chat-server/src/api/middleware"
+	"github.com/shabashab/chattin/apps/chat-server/src/config/configs"
 
 	_ "github.com/shabashab/chattin/apps/chat-server/docs"
 	swaggerFiles "github.com/swaggo/files"
@@ -37,5 +40,13 @@ func setupRoutes(p setupRoutesProvide) {
 		}
 	}
 
-	p.Router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+}
+
+func setupDocs(router *gin.Engine, docsConfig *configs.DocsConfig) {
+
+	swaggerUrl := docsConfig.SwaggerUrl
+
+	router.GET(swaggerUrl, ginSwagger.WrapHandler(swaggerFiles.Handler))
+
+	fmt.Println("Swagger docs available at", swaggerUrl)
 }

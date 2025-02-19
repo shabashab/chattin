@@ -6,5 +6,6 @@ var Module = fx.Module("configs",
 	fx.Provide(
 		NewApiConfig,
 		NewDbConfig,
+		NewAuthConfig,
 	),
 )

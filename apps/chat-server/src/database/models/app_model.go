@@ -6,6 +6,7 @@ type App struct {
 	gorm.Model
 
 	Name string
+	AppKey string
 
 	Users	[]User
 }

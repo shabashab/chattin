@@ -7,10 +7,21 @@ import (
 	"net/http"
 
 	"github.com/shabashab/chattin/apps/chat-server/src/api/controllers"
+	"github.com/shabashab/chattin/apps/chat-server/src/api/middleware"
 	"github.com/shabashab/chattin/apps/chat-server/src/config/configs"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/fx"
+)
+
+var Module = fx.Module("api", 
+	controllers.Module,
+	middleware.Module,
+
+	fx.Provide(
+		newServer,
+	),
+	fx.Invoke(setupRoutes),
 )
 
 func newServer(lc fx.Lifecycle, apiConfig *configs.ApiConfig) (*http.Server, *gin.Engine) {
@@ -43,11 +54,3 @@ func newServer(lc fx.Lifecycle, apiConfig *configs.ApiConfig) (*http.Server, *gi
 
 	return server, router
 }
-
-var Module = fx.Module("api", 
-	controllers.Module,
-	fx.Provide(
-		newServer,
-	),
-	fx.Invoke(setupRoutes),
-)

@@ -14,7 +14,7 @@ type setupRoutesProvide struct {
 	Router *gin.Engine
 
 	HealthController *controllers.HealthController
-	AuthController *controllers.AuthController
+	AuthController   *controllers.AuthController
 
 	AuthMiddleware *middleware.AuthMiddleware
 }
@@ -32,4 +32,5 @@ func setupRoutes(p setupRoutesProvide) {
 			auth.GET("/iam", p.AuthController.GetCurrentUser)
 		}
 	}
+
 }

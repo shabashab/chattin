@@ -20,13 +20,19 @@ var Module = fx.Module("api",
 
 	fx.Provide(
 		newServer,
+		configs.NewDocsConfig,
 	),
-	fx.Invoke(setupRoutes),
+	fx.Invoke(setupRoutes, setupDocs),
 )
 
 // @title           Chatting API
 // @version         1.0
 // @description     This is the API for the Chatting
+
+// @securityDefinitions.apiKey BearerAuth
+// @in header
+// @name Authorization
+// @description Enter your JWT token as: Bearer <your-token>
 
 // @host      localhost:4000
 // @BasePath  /api/v1

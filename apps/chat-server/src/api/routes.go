@@ -4,6 +4,10 @@ import (
 	"github.com/shabashab/chattin/apps/chat-server/src/api/controllers"
 	"github.com/shabashab/chattin/apps/chat-server/src/api/middleware"
 
+	_ "github.com/shabashab/chattin/apps/chat-server/docs"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
+
 	"github.com/gin-gonic/gin"
 	"go.uber.org/fx"
 )
@@ -33,4 +37,5 @@ func setupRoutes(p setupRoutesProvide) {
 		}
 	}
 
+	p.Router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 }

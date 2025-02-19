@@ -10,10 +10,6 @@ import (
 	"github.com/shabashab/chattin/apps/chat-server/src/api/middleware"
 	"github.com/shabashab/chattin/apps/chat-server/src/config/configs"
 
-	_ "github.com/shabashab/chattin/apps/chat-server/docs"
-	swaggerFiles "github.com/swaggo/files"
-	ginSwagger "github.com/swaggo/gin-swagger"
-
 	"github.com/gin-gonic/gin"
 	"go.uber.org/fx"
 )
@@ -40,8 +36,6 @@ func newServer(lc fx.Lifecycle, apiConfig *configs.ApiConfig) (*http.Server, *gi
 	server := &http.Server{
 		Addr: apiConfig.Host,
 	}
-
-	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	lc.Append(fx.Hook{
 		OnStart: func(ctx context.Context) error {

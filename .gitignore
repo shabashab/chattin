@@ -4,3 +4,6 @@
 .moon/docker
 
 tmp
+
+.env
+.DS_Store

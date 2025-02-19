@@ -17,9 +17,9 @@ func (*AppsSeeder) Name() string {
 
 func (*AppsSeeder) Execute(db *gorm.DB) (_ error) {
 	apps := []*models.App{
-		{Name: "app-01"},
-		{Name: "app-02"},
-		{Name: "app-03"},
+		{Name: "app-01", AppKey: "app-01-key"},
+		{Name: "app-02", AppKey: "app-02-key"},
+		{Name: "app-03", AppKey: "app-03-key"},
 	}
 
 	result := db.Create(apps)

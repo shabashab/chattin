@@ -2,10 +2,11 @@
 
 ## Pre-requisites
 
-You should have `air` installed:
+You should have `air` and `swag` installed:
 
 ```
 go install github.com/air-verse/air@latest
+go install github.com/swaggo/swag/cmd/swag@latest
 ```
 
 ## Running
